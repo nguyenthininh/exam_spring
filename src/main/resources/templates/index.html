@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Product</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+</head>
+<body>
+
+<div class="container">
+    <form class="well form-horizontal" id="person" name="person">
+        <!-- Form Name -->
+        <legend><center><h2><b>Add Person & Edit Person</b></h2></center></legend><br>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label">Person ID</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-folder-close"></i></span>
+                    <input  name="personId" id="personId" placeholder="Person ID" class="form-control"  type="text">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label">Fist Name</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-folder-close"></i></span>
+                    <input  name="firstname" id="firstname" placeholder="First Name" class="form-control"  type="text">
+                </div>
+            </div>
+        </div>
+        <!-- Text input-->
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" >Code</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+                    <input name="code" id="code" placeholder="Code" class="form-control"  type="text">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" >Email</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+                    <input name="email" id="email" placeholder="Code" class="form-control"  type="email">
+                </div>
+            </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Birth</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-film"></i></span>
+                    <input name="birth" id="birth"  class="form-control"  type="date">
+                </div>
+            </div>
+        </div>
+        <!-- Text input-->
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Gender</label>
+            <div class="col-md-4 selectContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                    <select name="gender" id="gender" class="form-control selectpicker">
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4"><br>
+                   <button type="submit" id="addPerson" class="btn btn-warning" >Submit
+                       <span class="glyphicon glyphicon-send"></span>
+                   </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" >Phone</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+                    <input name="phone" id="phone" placeholder="Phone" class="form-control"  type="number">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" >Address</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+                    <input name="address" id="address" placeholder="Address" class="form-control"  type="address">
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+<div class="container">
+    <h2 style="color: #448aff;text-align: center;"> Person Table </h2>
+    <hr>
+    <table class="table table-striped" id="persons" >
+        <div class="dropdown">
+            <!--            <form method="post" action="">-->
+            <select onchange="if (this.value) window.location.href = this.value" class="btn btn-default dropdown-toggle pull-right" data-toggle="dropdown"> <span class="glyphicon glyphicon-check"></span> &nbspMark/ UnMark All
+                <span class="caret"></span>
+                <option>*</option>
+                <option value="http://localhost:8080/admin/product?sortBy=id">Default Sorting</option>
+                <option value="http://localhost:8080/admin/product?sortBy=priceAsc">Sort By Highest Price</option>
+                <option value="http://localhost:8080/admin/product?sortBy=priceDesc">Sort By Lowest Price</option>
+                <option value="http://localhost:8080/admin/product?sortBy=name">Sort By Name </option>
+                <option value="http://localhost:8080/admin/product?sortBy=status">Sort By Status</option>
+            </select>
+            <!--            <a style="margin-right: 15px;" href="/recycle" class="btn btn-danger pull-left"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Recycle Bin</a>-->
+            <!--            <a style="margin-right: 15px;" href="/product_new" class="btn btn-primary pull-left"> <span class="glyphicon glyphicon-plus"></span> &nbsp Create Product</a>-->
+        </div>
+        <thead>
+        <tr class="row-name">
+            <th>PersonId</th>
+            <th>First Name</th>
+
+            <th>Code</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Birth</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody id="list-person">
+
+        </tbody>
+    </table>
+</div>
+<style>
+
+    /* Table css Start */
+    a.del
+    {
+        background:#d9534f;
+        border-radius: 2px;
+        width: 35px;
+        height:28px;
+        padding-left:12px;
+        line-height:10px;
+    }
+
+    a.edit
+    {
+        padding-left:10px;
+        background:#337ab7;
+        color:#fff;
+        border-radius:2px;
+        border:none;
+    }
+
+    tr.row-name
+    {
+        font-size: 18px;
+        color:#448aff;
+    }
+
+    tr.row-content
+    {
+        color:#6c7173;
+    }
+
+    table
+    {
+        border-bottom: 8px solid #448aff;
+    }
+
+    td.check
+    {
+        text-align: center;
+    }
+
+    .table-striped>tbody>tr:nth-of-type(odd)
+    {
+        background:#F0F2F2 !important;
+    }
+
+    a.btn-danger:hover
+    {
+        background: #de6c69;
+    }
+
+    a.btn-danger
+    {
+        background:#d9534f;
+    }
+
+    a.btn-top
+    {
+        background:#448aff;
+        color:#fff;
+        border:1px solid #448aff;
+        padding: 7px 10px;
+        border-radius:4px;
+    }
+
+    a.btn-top:hover
+    {
+        text-decoration: none;
+        box-shadow:3px 3px 5px #222;
+        transition:box-shadow 0.5s;
+    }
+
+    /* Table css End */
+
+</style>
+
+
+<style>
+
+    /* Table css Start */
+    a.del
+    {
+        background:#d9534f;
+        border-radius: 2px;
+        width: 35px;
+        height:28px;
+        padding-left:12px;
+        line-height:10px;
+    }
+
+    a.edit
+    {
+        padding-left:10px;
+        background:#337ab7;
+        color:#fff;
+        border-radius:2px;
+        border:none;
+    }
+
+    tr.row-name
+    {
+        font-size: 18px;
+        color:#448aff;
+    }
+
+    tr.row-content
+    {
+        color:#6c7173;
+    }
+
+    table
+    {
+        border-bottom: 8px solid #448aff;
+    }
+
+    td.check
+    {
+        text-align: center;
+    }
+
+    .table-striped>tbody>tr:nth-of-type(odd)
+    {
+        background:#F0F2F2 !important;
+    }
+
+    a.btn-danger:hover
+    {
+        background: #de6c69;
+    }
+
+    a.btn-danger
+    {
+        background:#d9534f;
+    }
+
+    a.btn-top
+    {
+        background:#448aff;
+        color:#fff;
+        border:1px solid #448aff;
+        padding: 7px 10px;
+        border-radius:4px;
+    }
+
+    a.btn-top:hover
+    {
+        text-decoration: none;
+        box-shadow:3px 3px 5px #222;
+        transition:box-shadow 0.5s;
+    }
+
+    /* Table css End */
+
+</style>
+
+</body>
+
+<script type="text/javascript">
+    var search = {}
+    var token = $("input[name='_csrf']").val();
+    search["_csrf"] = token;
+    $.get( "/api/person/", search)
+        .done(function( data ) {
+            var json = JSON.stringify(data);
+            var person = data.result
+            for (let i=0;i<person.length;i++){
+                let html = `
+                <tr class="row-content">
+                    <td><button class="btn btn-primary" onclick="update(`+person[i].personId+`)">` + person[i].personId + `</button></td>
+                    <td id="idPerson">` + person[i].firstname+`</td>
+                    <td id="">\` + person[i].code+\`</td>
+                    <td id="">` + person[i].birth+`</td>
+                    <td id="">` + person[i].email+`</td>
+                    <td id="">` + person[i].gender+`</td>
+                    <td id="">` + person[i].phone+`</td>
+                    <td id="">\` + person[i].address+\`</td>
+                    <td>
+                        <button type="submit" onclick="deletePerson(`+person[i].personId+`)" class="btn btn-danger" > X </button>
+                    </td>
+                </tr>`
+                $('#list-person').append(html)
+            }
+            console.log(data.result)
+        })
+        .fail(function(data) {
+            alert( "error" );
+        });
+    function update(personId){
+        $.ajax({
+            url : 'http://localhost:8080/api/person/'+personId,
+            method: 'GET',
+            dataType: 'JSON',
+            success: function (data){
+                $('#personId').val(data.personId);
+                $('#firstname').val(data.firstname);
+                $('#code').val(data.code);
+                $('#gender').val(data.gender);
+                $('#birth').val(data.birth);
+                $('#email').val(data.email);
+                $('#phone').val(data.phone);
+                $('#address').val(data.address);
+            },
+            error: function (error){
+                alert("Chức năng sửa đang lỗi");
+            }
+        });
+    }
+
+    function deletePerson(personId){
+        var method ="";
+        var msg = confirm('Chọn Yes hoặc No');
+        var url = "";
+        var txt;
+        if (msg === true){
+            url = "http://localhost:8080/api/delete/"+personId;
+            method = "DELETE";
+            txt = "Bạn đã chọn có";
+        }else{
+            url = "http://localhost:8080/api/person/";
+            method = "GET";
+            txt = "Bạn đã chọn không";
+        }
+        $.ajax({
+            url :url,
+            method : method,
+            dataType: 'JSON',
+            success : function (){
+                alert('Xoá thành công');
+            },
+            error: function (){
+                alert('Chức năng xoá đang');
+            }
+        })
+    }
+
+</script>
+</html>
