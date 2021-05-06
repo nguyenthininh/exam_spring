@@ -12,6 +12,7 @@ public interface StudentService {
     Optional<StudentEntity> findById(Integer integer);
 
     Iterable<StudentEntity> findAll();
+    StudentEntity createStudent(StudentEntity student);
 
     void deleteById(Integer integer);
 //    StudentEntity createStudent(StudentEntity student);

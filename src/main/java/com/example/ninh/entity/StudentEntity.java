@@ -5,16 +5,39 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "student", schema = "students", catalog = "")
+@Table(name = "student", schema = "students")
 public class StudentEntity {
+    public StudentEntity() {
+    }
+
     private Integer id;
     private String name;
     private String code;
     private Integer gender;
     private String email;
-    private Date birth;
+    private String birth;
     private Integer phone;
     private String address;
+    private  String pasword;
+
+    public String getPasword() {
+        return pasword;
+    }
+
+    public void setPasword(String pasword) {
+        this.pasword = pasword;
+    }
+
+    public StudentEntity(String name, String code, Integer gender, String email, String birth, Integer phone, String address, String password) {
+        this.name = name;
+        this.code = code;
+        this.gender = gender;
+        this.email = email;
+        this.birth = birth;
+        this.phone = phone;
+        this.address = address;
+        this.pasword = password;
+    }
 
     @Id
     @Column(name = "id", nullable = false)
@@ -68,11 +91,11 @@ public class StudentEntity {
 
     @Basic
     @Column(name = "Birth", nullable = false)
-    public Date getBirth() {
+    public String getBirth() {
         return birth;
     }
 
-    public void setBirth(Date birth) {
+    public void setBirth(String birth) {
         this.birth = birth;
     }
 

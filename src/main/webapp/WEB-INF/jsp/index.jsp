@@ -44,4 +44,7 @@
         </c:forEach>
 
     </table>
+    <c:url var="url" value="create">
+    </c:url>
+    <a href="${url}">CREATE</a>
 </div>

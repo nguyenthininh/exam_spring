@@ -56,6 +56,12 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
+    public StudentEntity createStudent(StudentEntity student) {
+        StudentEntity studentEntity = studentRepo.save(student);
+        return studentEntity;
+    }
+
+    @Override
     public void deleteById(Integer integer) {
         studentRepo.deleteById(integer);
     }

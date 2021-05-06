@@ -22,25 +22,29 @@ public class StudentController {
         modelMap.addAttribute("students",studentService.findAll());
         return "index";
     }
+    @GetMapping("/create")
+    public String createStudent(ModelMap modelMap) {
+        return "create";
+    }
     @PostMapping("/create")
     public String create(Model model, @RequestParam Map<String, String> params) {
 
         String studentid = params.get("studentid");
         String name = params.get("name");
-        String gender = params.get("gender");
+        Integer gender = Integer.valueOf(params.get("gender"));
         String email = params.get("email");
-        String phone = params.get("phone");
+        Integer phone = Integer.valueOf(params.get("phone"));
         String birth = params.get("birth");
         String nativeland = params.get("nativeland");
         String password = params.get("password");
-        if(studentid.isEmpty()||name.isEmpty()||gender.isEmpty()||email.isEmpty()||phone.isEmpty()||birth.isEmpty()||nativeland.isEmpty()||password.isEmpty()){
-            String result = "Some field are empty!";
+        if(studentid.isEmpty()||name.isEmpty()||gender == null||email.isEmpty()||phone == null||birth.isEmpty()||nativeland.isEmpty()||password.isEmpty()){
+            String result = " field are empty!";
             model.addAttribute("result", result);
             return "result";
         }
         else {
-            StudentEntity p = new StudentEntity(name,studentid,gender,email,phone,password,birth,nativeland);
-            studentService.create(p);
+            StudentEntity p = new StudentEntity(name,studentid,gender,email,birth,phone,nativeland,password);
+            studentService.createStudent(p);
             String result = "Success";
             model.addAttribute("result", result);
             return "result";
